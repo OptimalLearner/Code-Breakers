@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/css/materialize.min.css">
+    <link rel="stylesheet" href="static/css/search.css">
+
+    <script src="static/js/jquery-3.6.0.min.js"></script>
+    <script src="static/js/materialize.min.js"></script>
+    <script src="static/js/news.js"></script>
+
+
+    <style>
+        
+    </style>
+</head>
+
+<body>
+
+  <header id="header">
+    <div class="container">
+         <a href="#header"><img src="static/Landingpage/img/logo.png" alt="logo"  width="90px" height="90px"></a>
+          <b>PAISA PLANNER</b>
+      
+    </div>
+  </header><!-- #header -->
+
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'tweets')">TWEETS</button>
+        <button class="tablinks" onclick="openCity(event, 'news')">NEWS</button>
+        <a href="{{url_for('chatbot')}}" class="tablinks">CHATBOT
+    </div>
+
+    <div id="tweets" class="tabcontent">
+        <div class="column">
+            <a class="twitter-timeline" data-lang="en" data-height="500" href="https://twitter.com/bespokeinvest?ref_src=twsrc%5Etfw">Tweets by bespokeinvest</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
+        <div class="column">
+            <a class="twitter-timeline" data-lang="en" data-height="500" href="https://twitter.com/OutlookMoney?ref_src=twsrc%5Etfw">Tweets by OutlookMoney</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
+        <div class="column">
+            <a class="twitter-timeline" data-lang="en" data-width="500" data-height="500" href="https://twitter.com/JstInvestments?ref_src=twsrc%5Etfw">Tweets by JstInvestments</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+    </div>
+
+    <div id="news" class="tabcontent">
+        <div class="container">
+            <h4>News Articles</h4>
+            <div class="row">
+                <div id="newsResults"></div>
+            </div>
+            <div id="loader">
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="books" class="tabcontent">
+        <h3>RECOMMENDED BOOKS</h3>
+        <p>Rec. Books here.</p>
+    </div>
+
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+
+</body>
+
+</html>

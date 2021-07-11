@@ -1,0 +1,420 @@
+<!-- <script type="text/javascript">
+/*let score = 1;
+let loan_amount = 500000;
+let total_loan_amount = 1000000;
+let amount_paid = 1000000;
+let total_loan = 15;
+
+    if((loan_amount<500000)) {
+        score = 0.25;
+    } else if((loan_amount>=500000 && loan_amount<1000000)) {
+        score = 0.5;
+    } else if((loan_amount>=1000000 && loan_amount<5000000)) {
+        score = 0.85;
+    }
+
+    if(amount_paid<=0.1*total_loan_amount) {
+        score *= 0.05;
+    } else if(amount_paid<=0.4*total_loan_amount) {
+        score *= 0.25;
+    } else if(amount_paid<=0.75*total_loan_amount) {
+        score *= 0.6;
+    } else if(amount_paid<=0.9*total_loan_amount) {
+        score *= 0.9;
+    }
+
+    if(total_loan<=5) {
+        score += 0.02;
+    } else if(total_loan>5 && total_loan<=10) {
+        score += 0.05;
+    } else if(total_loan>10) {
+        score += 0.075;
+    }
+    score = (score*500/8.52549633)*12+300;
+    console.log(score);*/
+
+
+
+    // calculate EMI
+    //var EMI =  P * r * (1 + r)n/((1 + r)n - 1);
+
+    //let str = 'ken dot10 at the rate gmail.com';
+    /*let str = 'a b c at the rate 123.com';
+    str = str.split(" ").join("")
+    console.log("Old: "+str);
+    if(str.includes('dot')) {
+        str = str.replace("dot", ".")
+    }
+    if(str.includes('attherate')) {
+        str = str.replace("attherate", "@")
+    }
+    console.log("New: "+str);*/
+
+    function setUtterance(message, voice) {
+        let utterance = new SpeechSynthesisUtterance(message);
+        utterance.voice = voice;
+        utterance.pitch = 250.0;
+        utterance.rate = 0.8;
+        utterance.volume = 0.7;
+        return utterance;
+        synthesis.speak(utterance);
+    }
+
+    function EmailMessage(synthesis, voice, time, email, subject) {
+        console.log("time: "+time);
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+        if (window.SpeechRecognition === null) {
+            utterance = setUtterance('Sorry, but Speech Synthesis in not supported by your browser.', voice);
+            synthesis.speak(utterance);
+        } else {
+            let recognizer = new window.SpeechRecognition();
+            recognizer.continuous = false;
+            recognizer.lang = 'en-IN';
+            console.log("Inside Else");
+            recognizer.onresult = function(event) {
+                console.log("Start of onresult");
+                let resultString = '';
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    if (event.results[i].isFinal) {
+                        resultString = event.results[i][0].transcript;
+                    }
+                }
+                console.log("Receiver:" +resultString);
+                let x = resultString.split(" ");
+                let userMessage = '';
+                x.forEach(function(value) {
+                    if(value=="dot") {
+                        userEmail += '.';
+                    } else if(value=="at" && counter==0) {
+                        counter++;
+                        temp.push(value);
+                    } else if(value=="the" && counter==1) {
+                        counter++;
+                        temp.push(value);
+                    } else if(value=="rate" && counter==3) {
+                        userEmail += '@';
+                        temp = [];
+                    } else {
+                        userMessage += value;
+                    }
+                });
+
+                /*utterance = setUtterance('Enter The Email Message', voice);
+                synthesis.speak(utterance);*/
+                utterance.onend = function(event) {
+                    console.log("Inside On End (Email)");
+                    $.post('/sendEmail', {recipient: to, subject: subject, message: userMessage}).done(function(data) {
+                        if(data=='1') {
+                            utterance = setUtterance('Email Sent Successfully', voice);
+                            synthesis.speak(utterance);
+                            alert("Email Sent Successfully");
+                        } else {
+                            utterance = setUtterance('Email Not Sent', voice);
+                            synthesis.speak(utterance);
+                            alert("Email Not Sent");
+                        }
+                    });
+                }
+            }
+
+            recognizer.onerror = function(event) {
+                reUtterance(synthesis, voice,'Sorry for the inconvinence, some error occured. Please try again!');
+                console.log('Error occurred in recognition: ' + event.error);
+            }
+
+
+            recognizer.start();
+            console.log("Recognizer Start");
+
+            function stopRecognition() {
+                recognizer.stop();
+                console.log("Recognizer Stop");
+            }
+            setTimeout(stopRecognition, time);
+        }
+    }
+
+    function EmailSubject(synthesis, voice, time, email) {
+        console.log("time: "+time);
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+        if (window.SpeechRecognition === null) {
+            utterance = setUtterance('Sorry, but Speech Synthesis in not supported by your browser.', voice);
+            synthesis.speak(utterance);
+        } else {
+            let recognizer = new window.SpeechRecognition();
+            recognizer.continuous = false;
+            recognizer.lang = 'en-IN';
+            console.log("Inside Else");
+            recognizer.onresult = function(event) {
+                console.log("Start of onresult");
+                let resultString = '';
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    if (event.results[i].isFinal) {
+                        resultString = event.results[i][0].transcript;
+                    }
+                }
+                console.log("Receiver:" +resultString);
+                let x = resultString.split(" ");
+                let userSubject = '';
+                x.forEach(function(value) {
+                    if(value=="dot") {
+                        userEmail += '.';
+                    } else if(value=="at" && counter==0) {
+                        counter++;
+                        temp.push(value);
+                    } else if(value=="the" && counter==1) {
+                        counter++;
+                        temp.push(value);
+                    } else if(value=="rate" && counter==3) {
+                        userEmail += '@';
+                        temp = [];
+                    } else {
+                        userSubject += value;
+                    }
+                });
+
+                utterance = setUtterance('Enter The Email Message', voice);
+                synthesis.speak(utterance);
+                utterance.onend = function(event) {
+                    console.log("Inside On End (Email)");
+                    EmailMessage(synthesis, voice, 15000, email, userSubject);
+                }
+            }
+
+            recognizer.onerror = function(event) {
+                reUtterance(synthesis, voice,'Sorry for the inconvinence, some error occured. Please try again!');
+                console.log('Error occurred in recognition: ' + event.error);
+            }
+
+
+            recognizer.start();
+            console.log("Recognizer Start");
+
+            function stopRecognition() {
+                recognizer.stop();
+                console.log("Recognizer Stop");
+            }
+            setTimeout(stopRecognition, time);
+        }
+    }
+
+    function ReceiverEmail(synthesis, voice, time) {
+        console.log("time: "+time);
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+        if (window.SpeechRecognition === null) {
+            utterance = setUtterance('Sorry, but Speech Synthesis in not supported by your browser.', voice);
+            synthesis.speak(utterance);
+        } else {
+            let recognizer = new window.SpeechRecognition();
+            recognizer.continuous = false;
+            recognizer.lang = 'en-IN';
+            console.log("Inside Else");
+            recognizer.onresult = function(event) {
+                console.log("Start of onresult");
+                let resultString = '';
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    if (event.results[i].isFinal) {
+                        resultString = event.results[i][0].transcript;
+                    }
+                }
+                console.log("Receiver:" +resultString);
+                let x = resultString.split(" ");
+                let userEmail = '';
+                x.forEach(function(value) {
+                    if(value=="dot") {
+                        userEmail += '.';
+                    } else if(value=="at" && counter==0) {
+                        counter++;
+                        temp.push(value);
+                    } else if(value=="the" && counter==1) {
+                        counter++;
+                        temp.push(value);
+                    } else if(value=="rate" && counter==3) {
+                        userEmail += '@';
+                        temp = [];
+                    } else {
+                        userEmail += value;
+                    }
+                });
+
+                utterance = setUtterance('Enter The Subject For The Email', voice);
+                synthesis.speak(utterance);
+                utterance.onend = function(event) {
+                    console.log("Inside On End (Email)");
+                    EmailSubject(synthesis, voice, 9000, userEmail);
+                }
+            }
+
+            recognizer.onerror = function(event) {
+                reUtterance(synthesis, voice,'Sorry for the inconvinence, some error occured. Please try again!');
+                console.log('Error occurred in recognition: ' + event.error);
+            }
+
+
+            recognizer.start();
+            console.log("Recognizer Start");
+
+            function stopRecognition() {
+                recognizer.stop();
+                console.log("Recognizer Stop");
+            }
+            setTimeout(stopRecognition, time);
+        }
+    }
+
+    function TextToSpeech() {
+        if ('speechSynthesis' in window) {
+            let synthesis = window.speechSynthesis;
+            let voice = synthesis.getVoices().filter(function(voice) {
+                return voice.name == 'Microsoft Zira Desktop - English (United States)';
+            })[0];
+
+            let utterance;
+
+            utterance = setUtterance('Enter Reciepent's Email', voice);
+            synthesis.speak(utterance);
+            let redirectResult = 0;
+            utterance.onend = function(event) {
+                //console.log("Between");
+                console.log("Inside On End");
+                ReceiverEmail(synthesis, voice, 4000);
+            }
+
+        } else {
+            console.log('Text-to-speech not supported on this browser (or on your device).');
+        }
+
+    }
+
+    function reUtterance(synthesis, voice, message) {
+        let utterance = setUtterance(message, voice);
+        synthesis.speak(utterance);
+        utterance.onend = function(event) {
+            console.log("Inside On Result (reutterance)");
+            let redirectResult = SpeechToText(synthesis, voice, 4000);
+        }
+    }
+
+    $(document).ready(function () {
+        $(".btn-send").on('click', function() {
+            let to = $(".to").val();
+            let subject = $(".subject").val();
+            let message = $(".message").val();
+
+            $.post('/sendEmail', {recipient: to, subject: subject, message: message}).done(function(data) {
+                if(data=='1') {
+                    alert("Email Sent Successfully");
+                } else {
+                    alert("Email Not Sent");
+                }
+            });
+            $(".to").val("");
+            $(".subject").val("");
+            $(".message").val("");
+        });
+    });
+</script>
+ -->
+
+ <!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<script>
+/*
+var xValues = [];
+var yValues = [];
+let chartData = JSON.parse('{{res_cost | tojson}}')  //{'April': 37565, 'May': 42186, 'June': 52770, 'July': 63664, 'August': 40571}
+console.log(chartData)
+
+for (const i in chartData) {
+    xValues.push(i)
+    yValues.push(chartData[i])
+}
+
+
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart", {
+  type: "doughnut",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018"
+    }
+  }
+});
+*/
+
+var xValues = [];
+var yValues = [];
+let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+let chartData = JSON.parse('{{res_cost | tojson}}')
+console.log(chartData)
+
+var d = new Date();
+var n = d.getMonth();
+
+for(let i=n-4;i<=n;i++) {
+  xValues.push(months[i])
+}
+
+for (let i=0;i<5;i++) {
+    yValues.push(chartData[xValues[i]])
+}
+
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Monthly Expenses"
+    },
+    scales: {
+     yAxes: [{
+       ticks: {
+         max: 60000,
+         min: 20000
+       }
+     }]
+    }
+  }
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Investment Result </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+</head>
+<body style="min-height: 100vh">
+<div class="grey-bg container-fluid">
+  <section id="minimal-statistics">
+    <div class="row">
+      <div class="col-12 my-3 text-center">
+        <h2 class="text-uppercase"> Investment Planner </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6 d-flex justify-content-center align-items-center text-center flex-column">
+
+          <h3> You'll Need To Invest </h3>
+          <h3> &#8377; {{data["SIP"]}} </h3>
+          <h4> monthly for {{data["tenure"]}} years </h4>
+          <br />
+          <h3> Along With An Upfront Amount Of </h3>
+          <h4> &#8377; {{data["upfront"]}} To Achieve Your Goal </h4>
+
+          <br /><br/>
+        <h4> Considering Inflation </h4>
+        <h5 class="px-5"> In {{data["tenure"]}} years, total cost of your goal will be around &#8377; {{data["inflation"]}} with an inflation rate of 5% </h5>
+      </div>
+      <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+          <img src="static/img/{{ 'investment_image.png' }}" style="width: 90%; height: 90%;" />
+      </div>
+    </div>
+
+  </section>
+
+
+  <div class="row">
+    <div class="col-12 mt-4 mb-2 text-center">
+      <h2 class="text-uppercase"> Funds In Your Plan </h2>
+      <p>  </p>
+    </div>
+  </div>
+
+  <div class="row">
+    {% for key in data['funds_list'] %}
+    <div class="col-xl-10 col-md-10 offset-1">
+      <div class="card">
+        <div class="card-content">
+          <div class="card-body cleartfix">
+            <div class="media align-items-stretch">
+              <div class="align-self-center">
+                <i class="fa fa-star primary font-large-2 mr-2"></i>
+              </div>
+              <div class="media-body">
+                <h4 class="font-weight-bolder"> {{key[0]}} </h4>
+                <span> {{ key[4]}} | <span class="font-weight-bolder">Scheme Code: </span> {{key[3]}} </span><br />
+                <span> {{ key[2]}} </span><br />
+                <span> <span class="font-weight-bolder">NAV:</span> {{ key[-4]}} | <span class="font-weight-bolder">Returns:</span> {{key[-3]}} </span>
+              </div>
+              <div class="align-self-start mx-5 text-center" style="margin-right: 35px">
+                <h4> One Time </h4>
+              <span class="font-weight-bolder" style="font-size: 25px;"> <span style="font-size: 35px;">&#8377;</span>  {{ key[-2]}} </span>
+              </div>
+            <div style="height: 25px%; width: 5px; background-color: #F5FAFA;"></div>
+              <div class="align-self-start text-center mx-5">
+                <h4> SIP </h4>
+                <span class="font-weight-bolder"> {% if key[-1] !='-' %} <span style="font-size: 35px;">&#8377;</span> {% endif %} <span style="font-size: 25px;">{{ key[-1]}} </span> </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+
+  <div class="btn-container d-flex justify-content-center align-items-center mb-4">
+
+    <button type="button" class="btn btn-primary get-plan-btn"> Get This Plan </button>
+  </div>
+
+
+</div>
+</body>
+</html>

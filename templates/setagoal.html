@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PaisaPlanner</title>
+  
+  <link href="static/Landingpage/img/logo.png" rel="icon">
+  <link href="static/Landingpage/img/apple-touch-icon.png" rel="apple-touch-icon">      
+
+  <link href="static/Landingpage/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="static/Landingpage/css/style1.css" rel="stylesheet">
+
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.grid-container {
+  float: right;
+  display: grid;
+  grid-gap: 17px;
+  grid-template-columns: auto auto auto auto;
+  padding: 25px;
+  padding-top: 150px;
+  text-decoration: none;
+}
+
+.grid-item {
+  border-radius: 17px;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 35px;
+  font-size: 17px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 10px 10px 15px #afafaf;
+}
+
+.imagestyle{
+  width: 35px;
+  height: 35px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;   
+}
+
+p{
+  padding-left: 1px;
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  font-family: 'Rubik', sans-serif;
+  
+  
+}
+
+.column{
+  float:left;
+  width:auto;
+}
+
+.row:: after{
+  content: "";
+  clear : both;
+  display: table;
+}
+.para{
+  float:left;
+  width:40%;
+  padding-top: 15%;
+  padding-left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align:center;
+}
+a {
+  text-decoration: none;
+  color: #111;
+}
+
+</style>
+</head>
+<body>
+
+  <header id="header">
+    <div class="container">
+         <a href="#header"><img src="static/Landingpage/img/logo.png" alt="logo"  width="90px" height="90px"></a>
+          <b>PAISA PLANNER</b>
+
+      <nav class="main-nav float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{{url_for('home')}}">Home</a></li>
+          <li><a href="{{url_for('home')}}">Features</a></li>
+          <li><a href="{{url_for('home')}}">About Us</a></li>
+          <li><a href="{{url_for('home')}}">Contact Us</a></li>
+        </ul>
+      </nav><!-- .main-nav -->
+      
+    </div>
+  </header><!-- #header -->
+
+<div class="para">
+  <h2>  Set your goal</h2>
+  
+<p>
+  We'll help you bring your dreams to life.
+  Setting a financial goal is the first step to making your dreams a reality.</br>
+   Investing regularly is the next. We make it really simple for you, and we’re with you every step of the way. </br>Simply choose your goal to get started.</p>
+  
+</div>
+  
+ 
+  
+    <div class="grid-container">
+      <div class="grid-item"><a href="{{url_for('goalsForm')}}"><img class="imagestyle" border="0" alt="W3Schools" src="static/img/house.svg" width="17" height="17" ><p>Own A House</p></div></a>
+      <div class="grid-item"><a href="{{url_for('goalsForm')}}"><img class="imagestyle" border="0" alt="W3Schools" src="static/img/retirement.svg" width="17" height="17" ><p>Retire easy</p></div>  </a>
+      <div class="grid-item"><a href="{{url_for('goalsForm')}}"><img class="imagestyle" border="0" alt="W3Schools" src="static/img/car.svg" width="17" height="17" ><p>Buy Car</p></div></a>
+      <div class="grid-item"><a href="{{url_for('goalsForm')}}"><img class="imagestyle" border="0" alt="W3Schools" src="static/img/vacation.svg" width="17" height="17" ><p>Vacation</p></div></a>
+      <div class="grid-item"><a href="{{url_for('goalsForm')}}"><img class="imagestyle"border="0" alt="W3Schools" src="static/img/anniversary.svg" width="17" height="17"><p>Anniversary</p></div>  </a>
+      <div class="grid-item"><a href="{{url_for('goalsForm')}}"><img class="imagestyle"border="0" alt="W3Schools" src="static/img/kidseducation.svg" width="17" height="17" ><p>Educate child</p></div></a>
+     
+    </div>
+   </a>
+
+
+</body>
+</html>

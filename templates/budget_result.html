@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Budget</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body style="min-height: 100vh">
+<div class="grey-bg container-fluid">
+  <section id="minimal-statistics">
+    <div class="row">
+      <div class="col-12 my-3 text-center">
+        <h2 class="text-uppercase"> Personal Budget Pattern </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-3 col-sm-6 col-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="align-self-center">
+                  <i class="icon-pencil primary font-large-2 float-left"></i>
+                </div>
+                <div class="media-body text-right">
+                  <h3> &#8377; {{data.get("monthlyIncome") }} </h3>
+                  <span> Your Monthly Income </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="align-self-center">
+                  <i class="fa fa-credit-card danger font-large-2 float-left"></i>
+                </div>
+                <div class="media-body text-right">
+                  <h3>&#8377; {{data.get("EMI") }}</h3>
+                  <span>EMI</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="align-self-center">
+                  <i class="fa fa-user warning font-large-2 float-left" aria-hidden="true"></i>
+
+                </div>
+                <div class="media-body text-right">
+                  <h3>{{data.get("age") }}</h3>
+                  <span>Your Age</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="align-self-center">
+                  <i class="fa fa-bullseye success font-large-2 float-left"></i>
+                </div>
+                <div class="media-body text-right">
+                  <h3> {{data.get("future_goals")[0] }} </h3>
+                  <span>Future Goal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+  </section>
+
+  <section id="stats-subtitle">
+  <div class="row">
+    <div class="col-12 mt-3 mb-1">
+      <h4 class="text-uppercase">Statistics With Subtitle</h4>
+      <p>Statistics on minimal cards with Title &amp; Sub Title.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-6 col-md-12">
+      <div class="card overflow-hidden">
+        <div class="card-content">
+          <div class="card-body cleartfix">
+            <div class="media align-items-stretch">
+              <div class="align-self-center">
+                <h1 class="mr-3">&#8377; {{data.get("emergency") }}</h1>
+              </div>
+              <div class="media-body">
+                <h4>Emergency Funds</h4>
+                <span>Monthly Savings</span>
+              </div>
+              <div class="align-self-center">
+                <i class="icon-wallet primary font-large-2 mr-2"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6 col-md-12">
+      <div class="card">
+        <div class="card-content">
+          <div class="card-body cleartfix">
+            <div class="media align-items-stretch">
+              <div class="align-self-center">
+                <h1 class="mr-2">&#8377; {{data.get("investment") }}</h1>
+              </div>
+              <div class="media-body">
+                <h4>Investment</h4>
+                <span>Monthly Savings</span>
+              </div>
+              <div class="align-self-center">
+                <i class="fa fa-money warning font-large-2 mr-2"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-6 col-md-12">
+      <div class="card">
+        <div class="card-content">
+          <div class="card-body cleartfix">
+            <div class="media align-items-stretch">
+              <div class="align-self-center">
+                <h1 class="mr-2">&#8377; {{data.get("miscellaneous") }}</h1>
+              </div>
+              <div class="media-body">
+                <h4>Miscellaneous</h4>
+                <span>Other Expenses</span>
+              </div>
+              <div class="align-self-center">
+                <i class="fa fa-info-circle danger font-large-2 mr-2"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% for key, value in data.get('priority').items() %}
+    <div class="col-xl-6 col-md-12">
+      <div class="card">
+        <div class="card-content">
+          <div class="card-body cleartfix">
+            <div class="media align-items-stretch">
+              <div class="align-self-center">
+                <h1 class="mr-2">&#8377; {{ value }}</h1>
+              </div>
+              <div class="media-body">
+                <h4>{{key}}</h4>
+                <span> Priorities </span>
+              </div>
+              <div class="align-self-center">
+                <i class="icon-wallet success font-large-2 mr-2"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+</div>
+</body>
+</html>

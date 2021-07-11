@@ -1,0 +1,143 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="static/css/goals.css">
+    
+    <link href="static/Landingpage/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/Landingpage/css/style1.css" rel="stylesheet">
+    <script type="text/javascript" src="static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="static/js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="static/js/goals.js"></script>
+</head>
+
+<body>
+
+  <header id="header">
+    <div class="container">
+         <a href="#header"><img src="static/Landingpage/img/logo.png" alt="logo"  width="90px" height="90px"></a>
+          <b>PAISA PLANNER</b>
+
+      <nav class="main-nav float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#intro">Home</a></li>
+          <li><a href="#service">Features</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#footer">Contact Us</a></li>
+        </ul>
+      </nav><!-- .main-nav -->
+      
+    </div>
+  </header><!-- #header -->
+
+    <form class="steps" accept-charset="UTF-8" method="POST" action="{{url_for('investmentPlanner')}}">
+        <ul id="progressbar">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <!-- USER INFORMATION FIELD SET -->
+        <fieldset>
+            <!-- Begin What's Your First Name Field -->
+            <div class="hs_firstname field hs-form-field">
+
+                <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your Name? *</label>
+
+                <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please include your first name">
+                <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+            </div>
+            <!-- End What's Your First Name Field -->
+
+            <!-- Begin What's Your First Name Field -->
+            <div class="hs_firstname field hs-form-field">
+
+                <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your Age? *</label>
+
+                <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="age" required="required" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please include your age">
+                <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+            </div>
+            <!-- End What's Your First Name Field -->
+
+            <!-- Begin What's Your Email Field -->
+            <div class="hs_email field hs-form-field">
+
+                <label for="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your E-mail Address? *</label>
+
+                <input id="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="email" required="required" type="email" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid email address.">
+                <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+            </div>
+            <!-- End What's Your Email Field -->
+            <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
+        </fieldset>
+
+
+
+        <!-- ACQUISITION FIELD SET -->
+        <fieldset>
+            <!-- Begin Total Number of Donors in Year 1 Field -->
+            <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field" id="webform-component-acquisition--amount-1">
+
+                <label for="edit-submitted-acquisition-amount-1 total_number_of_donors_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">What is the cost of it today ? *</label>
+
+                <input id="edit-submitted-acquisition-amount-1" class="form-text hs-input" name="total_number_of_donors_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+                <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+            </div>
+            <!-- End Total Number of Donors in Year 1 Field -->
+
+            <!-- Begin Total Number of Donors in Year 2 Field -->
+            <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
+
+                <label for="edit-submitted-acquisition-amount-2 total_number_of_donors_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">How much can you invest upfront ? *</label>
+
+                <input id="edit-submitted-acquisition-amount-2" class="form-text hs-input" name="total_number_of_donors_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+                <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+            </div>
+            <!-- End Total Number of Donors in Year 2 Field -->
+
+            <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+            <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+        </fieldset>
+
+
+
+        <!-- Cultivation FIELD SET -->
+        <fieldset>
+
+            <!-- Begin Average Gift Size in Year 1 Field -->
+            <div class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field" id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">
+
+                <label for="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">In how many years you want to achieve this goal ? *</label>
+
+                <input id="edit-submitted-cultivation-amount-1" class="form-text hs-input" name="average_gift_size_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+                <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+            </div>
+            <!-- End Average Gift Size in Year 1 Field -->
+
+            <input type="button" data-page="3" name="previous" class="previous action-button" value="Previous" />
+            <input type="submit" data-page="3" name="submit" class="submit action-button" value="Submit" />
+        </fieldset>
+    </form>
+<!--         <fieldset>
+            <h2 class="fs-title">It's on the way!</h2>
+            <h3 class="fs-subtitle">Thank you for trying out our marketing grader, please go check your email for your fundraising report card and some helpful tips to improve it!</h3>
+        </fieldset> -->
+</body>
+<script>
+
+    </script>
+
+</html>
