@@ -1,0 +1,143 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/goals.css">
+    <link rel="stylesheet" href="css/test.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="js/goals.js"></script>
+    <script type="text/javascript" src="js/budget.js"></script>
+</head>
+
+<body>
+    <form class="steps" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="">
+        <ul id="progressbar">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <!-- USER INFORMATION FIELD SET -->
+        <fieldset>
+            <!-- Begin What's Your First Name Field -->
+            <div class="hs_firstname field hs-form-field">
+
+                <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your monthly income ? *</label>
+
+                <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter your monthly income">
+                <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+            </div>
+            <!-- End What's Your First Name Field -->
+
+            <!-- Begin What's Your First Name Field -->
+            <div class="hs_firstname field hs-form-field">
+
+                <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your Age? *</label>
+
+                <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="age" required="required" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please include your age">
+                <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+            </div>
+            <!-- End What's Your First Name Field -->
+            <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
+        </fieldset>
+
+
+
+        <!-- ACQUISITION FIELD SET -->
+        <fieldset>
+            <!-- Begin Total Number of Donors in Year 1 Field -->
+            <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field" id="webform-component-acquisition--amount-1">
+
+                <table>
+                    <tr>
+                        <center>
+                            <h3>Prioritize your Categories</h3>
+                        </center>
+                    </tr>
+                    <tr>
+                        <th class="first-col"></th>
+                        <th>5</th>
+                        <th>4</th>
+                        <th>3</th>
+                        <th>2</th>
+                        <th>1</th>
+                    </tr>
+
+                    <tr>
+                        <td class="first-col">Category 1</td>
+                        <td><input type="radio" value="none" name="radiocat1" id="c1r1" onchange="checkButton1()" /></td>
+                        <td><input type="radio" value="none" name="radiocat1" id="c1r2" onchange="checkButton1()" /></td>
+                        <td><input type="radio" value="none" name="radiocat1" id="c1r3" onchange="checkButton1()" /></td>
+                        <td><input type="radio" value="none" name="radiocat1" id="c1r4" onchange="checkButton1()" /></td>
+                        <td><input type="radio" value="none" name="radiocat1" id="c1r5" onchange="checkButton1()" /></td>
+                    </tr>
+
+                    <tr>
+                        <td class="first-col">Category 2</td>
+                        <td><input type="radio" value="none" name="radiocat2" id="c2r1" onchange="checkButton2()" /></td>
+                        <td><input type="radio" value="none" name="radiocat2" id="c2r2" onchange="checkButton2()" /></td>
+                        <td><input type="radio" value="none" name="radiocat2" id="c2r3" onchange="checkButton2()" /></td>
+                        <td><input type="radio" value="none" name="radiocat2" id="c2r4" onchange="checkButton2()" /></td>
+                        <td><input type="radio" value="none" name="radiocat2" id="c2r5" onchange="checkButton2()" /></td>
+                    </tr>
+
+                    <tr>
+                        <td class="first-col">Category 3</td>
+                        <td><input type="radio" value="none" name="radiocat3" id="c3r1" onchange="checkButton3()" /></td>
+                        <td><input type="radio" value="none" name="radiocat3" id="c3r2" onchange="checkButton3()" /></td>
+                        <td><input type="radio" value="none" name="radiocat3" id="c3r3" onchange="checkButton3()" /></td>
+                        <td><input type="radio" value="none" name="radiocat3" id="c3r4" onchange="checkButton3()" /></td>
+                        <td><input type="radio" value="none" name="radiocat3" id="c3r5" onchange="checkButton3()" /></td>
+                    </tr>
+
+                    <tr>
+                        <td class="first-col">Category 4</td>
+                        <td><input type="radio" value="none" name="radiocat4" id="c4r1" onchange="checkButton4()" /></td>
+                        <td><input type="radio" value="none" name="radiocat4" id="c4r2" onchange="checkButton4()" /></td>
+                        <td><input type="radio" value="none" name="radiocat4" id="c4r3" onchange="checkButton4()" /></td>
+                        <td><input type="radio" value="none" name="radiocat4" id="c4r4" onchange="checkButton4()" /></td>
+                        <td><input type="radio" value="none" name="radiocat4" id="c4r5" onchange="checkButton4()" /></td>
+                    </tr>
+
+                    <tr>
+                        <td class="first-col">Category 5</td>
+                        <td><input type="radio" value="none" name="radiocat5" id="c5r1" onchange="checkButton5()" /></td>
+                        <td><input type="radio" value="none" name="radiocat5" id="c5r2" onchange="checkButton5()" /></td>
+                        <td><input type="radio" value="none" name="radiocat5" id="c5r3" onchange="checkButton5()" /></td>
+                        <td><input type="radio" value="none" name="radiocat5" id="c5r4" onchange="checkButton5()" /></td>
+                        <td><input type="radio" value="none" name="radiocat5" id="c5r5" onchange="checkButton5()" /></td>
+                    </tr>
+
+                    <tr>
+                        <td class="first-col">Category 6</td>
+                        <td><input type="radio" value="none" name="radiocat6" id="c6r1" onchange="checkButton6()" /></td>
+                        <td><input type="radio" value="none" name="radiocat6" id="c6r2" onchange="checkButton6()" /></td>
+                        <td><input type="radio" value="none" name="radiocat6" id="c6r3" onchange="checkButton6()" /></td>
+                        <td><input type="radio" value="none" name="radiocat6" id="c6r4" onchange="checkButton6()" /></td>
+                        <td><input type="radio" value="none" name="radiocat6" id="c6r5" onchange="checkButton6()" /></td>
+                    </tr>
+
+                </table>
+                <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+            </div>
+            <!-- End Total Number of Donors in Year 1 Field -->
+
+
+            <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+            <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+        </fieldset>
+
+        <fieldset>
+            <h2 class="fs-title">It's on the way!</h2>
+            <h3 class="fs-subtitle">Thank you for trying out our marketing grader, please go check your email for your fundraising report card and some helpful tips to improve it!</h3>
+        </fieldset>
+</body>
+
+</html>
